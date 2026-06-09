@@ -45,3 +45,6 @@ plt.title('Linear Regression')
 
 plt.show()
 
+plt.scatter(hours_studied, marks)
+plt.plot(hours_studied, w*hours_studied+b, color='red')
+plt.show()
