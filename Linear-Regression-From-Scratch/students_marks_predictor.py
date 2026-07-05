@@ -26,9 +26,15 @@ for i in range(epochs):
     b = b - learning_rate*db
 
 y_bar = w * hours_studied + b
-fig, ax = plt.subplots(dip=100)
+
+fig, ax = plt.subplots(dpi=100)
 ax.plot(errors, [i+1 for i in range(1000)])
+ax.set_xlabel('errors')
+ax.set_ylabel('epochs')
+ax.set_title('Error at every iteration')
 plt.show()
+
+
 test_input = int(input("Enter number of hours studied"))
 
 print(f"The predicted marks are {w * test_input + b} out of {100}")
