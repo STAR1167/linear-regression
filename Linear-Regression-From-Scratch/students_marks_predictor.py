@@ -8,15 +8,15 @@ hours_studied = data['hours_studied']
 n = len(marks)
 learning_rate = 0.01
 
-iterations = 1000
+epochs = 1000
 
 w=b=0
-
-for i in range(iterations):
+errors = []
+for i in range(epochs):
     y_bar = w*hours_studied + b
 
     loss = (1/n)*np.sum((y_bar - marks)**2)
-
+    errors.append(loss)
     dw = (2/n)*np.sum(hours_studied*(y_bar - marks))
 
     db = (2/n) * np.sum(y_bar - marks)
@@ -26,7 +26,8 @@ for i in range(iterations):
     b = b - learning_rate*db
 
 y_bar = w * hours_studied + b
-
+fig, ax = plt.subplots(dip=100)
+ax.plot(errors, [i+1 for i in range(1000)]
 test_input = int(input("Enter number of hours studied"))
 
 print(f"The predicted marks are {w * test_input + b} out of {100}")
